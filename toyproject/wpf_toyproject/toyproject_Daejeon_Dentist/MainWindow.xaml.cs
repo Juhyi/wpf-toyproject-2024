@@ -294,9 +294,19 @@ namespace toyproject_Daejeon_Dentist
 
         private  void GrdResult_SelectedCellsChanged(object Sender, SelectedCellsChangedEventArgs e) 
         {
-            var curItem = GrdResult.SelectedItem as dentistData;
+            try
+            {
+                var curMap = GrdResult.SelectedItem as dentistData;
+
+
+                BrsLoc.Address = $"http://google.com/maps/place/{curMap.Rn_adrs}";
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+            }
             
-            BrsLoc.Address = $"http://google.com/maps/place/{curItem.Rn_adrs}";
         }
     }
 }
