@@ -15,7 +15,7 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
     - 더블 클릭시 상세 정보 출력
     - 클릭시 구글 맵에서 위치 정보 화면이 나옴
 
-
+    ![조회 및 정보 화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj001.jpg)
 
 - 나의병원 (즐겨찾기) 추가 및 삭제 기능
     - 나의병원 추가 버튼을 이용하여 즐겨찾기 목록 생성
@@ -23,6 +23,8 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
         - 즐겨찾기 목록에서 다시 추가 버튼 클릭시 중복 저장 되지 않게 기능 구현
         - 복수개 선택 시 이미 저장되어 있는 병원은 제외하고 저장됨.
     - 나의병원 삭제 버튼 클릭시 즐겨 찾기 목록에서 삭제 됨
+
+    ![나의병원 저장 화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj002.jpg)
 
 
 ## 기능 구현을 위한 학습
