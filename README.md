@@ -16,6 +16,7 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
     - 그리뷰 병원 클릭 시 구글 맵에서 위치 정보 화면이 나옴
 
     ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ003.png)  ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ004.png)
+    
     ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.png)
 
 
@@ -26,7 +27,7 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
         - 복수개 선택 시 이미 저장되어 있는 병원은 제외하고 저장됨. 
     - 나의병원 삭제 버튼 클릭시 즐겨 찾기 목록에서 삭제 됨
 
-    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj002.jpg)
+    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ007.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ006.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ008.png)
 
 
 ## 기능 구현을 위해 패키지 및 툴
