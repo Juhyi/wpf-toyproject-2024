@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
 using toyproject_Daejeon_Dentist.Models;
 
@@ -27,14 +28,14 @@ namespace toyproject_Daejeon_Dentist
     {
         private bool isFavorite = false;
 
-        
+        public object TxtRepData { get; private set; }
 
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void InitComboDateFromDB()
+        
+        private void InitTxtNameFromDB()
         {
             using (SqlConnection conn = new SqlConnection(Helpers.Common.CONNSTRING))
             {
@@ -50,10 +51,10 @@ namespace toyproject_Daejeon_Dentist
                     saveDates.Add(Convert.ToString(row["Save_Date"]));
                 }
 
-                CboRepData.ItemsSource = saveDates;
+                TxtName.Text = saveDates.ToString();
             }
         }
-
+        
         // 조회 버큰 클릭
         private async void BtnSerch_Click(object sender, RoutedEventArgs e)
         {
@@ -71,16 +72,21 @@ namespace toyproject_Daejeon_Dentist
                 reader = new StreamReader(res.GetResponseStream());
                 result = reader.ReadToEnd();
 
-               
+
                 Debug.WriteLine(result);
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("오류", $"OpenApi 조회오류 {ex.Message} ");
             }
+            finally
+            {
+                reader.Close();
+                res.Close();
+            }
 
             var jsonResult = JObject.Parse(result);
-            var status = Convert.ToString( jsonResult["response"]["header"]["resultCode"]);
+            var status = Convert.ToString(jsonResult["response"]["header"]["resultCode"]);
 
             if (status == "C00")
             {
@@ -103,6 +109,7 @@ namespace toyproject_Daejeon_Dentist
                 }
                 this.DataContext = dentistData;
                 StsResult.Content = $"OpenAPI {dentistData.Count}건 조회 완료.";
+                isFavorite = false;
             }
         }
         // 나의 병원 추가 버튼 
@@ -113,15 +120,7 @@ namespace toyproject_Daejeon_Dentist
                 await this.ShowMessageAsync("나의 병원", "추가할 병원을 선택하세요(복수 선택 가능)");
                 return;
             }
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-            
             if (isFavorite == true)  // 즐겨찾기 보기한 뒤 영화를 다시 즐겨찾기하려고할때 막음
             {
                 await this.ShowMessageAsync("나의 병원", "이미 저장된 병원입니다.");
@@ -134,7 +133,8 @@ namespace toyproject_Daejeon_Dentist
                 adddentists.Add(item);
             }
 
-        
+
+
             try
             {
                 var insRes = 0;
@@ -145,12 +145,12 @@ namespace toyproject_Daejeon_Dentist
 
                     foreach (dentistData item in adddentists)
                     {
-                       
+
                         SqlCommand chkCmd = new SqlCommand(dentistData.CHECK_QUERY, conn);
                         chkCmd.Parameters.AddWithValue("@Sn", item.Sn);
-                        var cnt = Convert.ToInt32(chkCmd.ExecuteScalar());   
+                        var cnt = Convert.ToInt32(chkCmd.ExecuteScalar());
 
-                        if (cnt == 1) continue; 
+                        if (cnt == 1) continue;
 
                         SqlCommand cmd = new SqlCommand(Models.dentistData.INSERT_QUERY, conn);
                         cmd.Parameters.AddWithValue("@Sn", item.Sn);
@@ -159,9 +159,9 @@ namespace toyproject_Daejeon_Dentist
                         cmd.Parameters.AddWithValue("@Rn_adrs", item.Rn_adrs);
                         cmd.Parameters.AddWithValue("@Telno", item.Telno);
                         cmd.Parameters.AddWithValue("@Lnm_adrs", item.Lnm_adrs);
-                       
 
-                        insRes += cmd.ExecuteNonQuery();  
+
+                        insRes += cmd.ExecuteNonQuery();
 
                     }
                 }
@@ -177,17 +177,17 @@ namespace toyproject_Daejeon_Dentist
             }
             catch (Exception ex)
             {
-                await this.ShowMessageAsync("오류", $"즐겨찾기 오류 { ex.Message }");
+                await this.ShowMessageAsync("오류", $"즐겨찾기 오류 {ex.Message}");
             }
 
-            BtnViewMydentist_Click(sender, e);  
+            BtnViewMydentist_Click(sender, e);
         }
 
-       // 나의병원 조회버튼 클릭
+        // 나의병원 조회버튼 클릭
         private async void BtnViewMydentist_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = null;    
-
+            this.DataContext = null;
+            isFavorite = false;
 
             List<dentistData> myDentist = new List<dentistData>();
 
@@ -227,7 +227,7 @@ namespace toyproject_Daejeon_Dentist
             }
         }
 
-     // 삭제 버튼 클릭
+        // 삭제 버튼 클릭
         private async void BtnDelFavorite_Click(object sender, RoutedEventArgs e)
         {
             //await this.ShowMessageAsync("즐겨찾기", "즐겨찾기 목록에서 삭제");
@@ -277,10 +277,7 @@ namespace toyproject_Daejeon_Dentist
 
             BtnViewMydentist_Click(sender, e);   //즐겨찾기 보기 재실행
         }
-        private void CboRepData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+     
 
         // 그리드 선택 후 더블클릭
         private async void GrdResult_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -291,16 +288,16 @@ namespace toyproject_Daejeon_Dentist
             await this.ShowMessageAsync($"{curItem.Mdlc_instt_nm} ({curItem.Telno})", $"도로명 주소: {curItem.Rn_adrs}\n 지번 주소: {curItem.Lnm_adrs}");
         }
 
-       
+
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 
         // 그리드 클릭 이벤트핸들러(지도)
-        private  void GrdResult_SelectedCellsChanged(object Sender, SelectedCellsChangedEventArgs e) 
+        private void GrdResult_SelectedCellsChanged(object Sender, SelectedCellsChangedEventArgs e)
         {
             try
             {
@@ -314,7 +311,20 @@ namespace toyproject_Daejeon_Dentist
 
                 Debug.WriteLine(ex.Message);
             }
-            
+
         }
+
+        private void TxtName_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+
+     
+        private async void BtnNameSerch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
