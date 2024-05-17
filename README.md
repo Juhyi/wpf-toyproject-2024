@@ -15,8 +15,15 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
     - 그리뷰 병원 더블 클릭 시 상세 정보 팝업 
     - 그리뷰 병원 클릭 시 구글 맵에서 위치 정보 화면이 나옴
 
+<<<<<<< Updated upstream
     ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj001.jpg)
 ***
+=======
+    ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ003.jpg)   ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ004.jpg)
+    ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.jpg)
+
+
+>>>>>>> Stashed changes
 - 나의병원 (즐겨찾기) 추가 및 삭제 기능
     - 나의병원 추가 버튼을 이용하여 즐겨찾기 목록 생성
         - 복수개 선택 가능
@@ -33,3 +40,6 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
 - MahApps.Metro UI
 - SQL Server, DB 연동
 - 오픈 api 활용
+
+## 보완해서 개발할 거
+- 병원 이름 검색을 통해 병원 선택하기

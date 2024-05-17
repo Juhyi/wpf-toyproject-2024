@@ -113,7 +113,15 @@ namespace toyproject_Daejeon_Dentist
                 await this.ShowMessageAsync("나의 병원", "추가할 병원을 선택하세요(복수 선택 가능)");
                 return;
             }
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            
             if (isFavorite == true)  // 즐겨찾기 보기한 뒤 영화를 다시 즐겨찾기하려고할때 막음
             {
                 await this.ShowMessageAsync("나의 병원", "이미 저장된 병원입니다.");
@@ -291,7 +299,7 @@ namespace toyproject_Daejeon_Dentist
         }
 
 
-
+        // 그리드 클릭 이벤트핸들러(지도)
         private  void GrdResult_SelectedCellsChanged(object Sender, SelectedCellsChangedEventArgs e) 
         {
             try
