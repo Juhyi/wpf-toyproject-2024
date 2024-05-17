@@ -17,7 +17,7 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
 
     ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ003.png)  ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ004.png)
     
-    ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.png)
+    ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.png align="center")
 
 
 - 나의병원 (즐겨찾기) 추가 및 삭제 기능
