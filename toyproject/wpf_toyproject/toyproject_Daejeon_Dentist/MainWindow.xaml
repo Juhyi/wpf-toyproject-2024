@@ -17,15 +17,16 @@
     </mah:MetroWindow.IconTemplate>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="360*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="487*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"  />
+            <RowDefinition Height="5*"  />
+            <RowDefinition Height="3*"  />
             <RowDefinition Height="1*"  />
-            <RowDefinition Height="80"  />
             <RowDefinition Height="30"  />
+
         </Grid.RowDefinitions>
         <!-- 바깥쪽 Grid 영역 설정-->
 
@@ -35,7 +36,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="대전 치과정보 App" FontSize="14" FontWeight="Bold" Margin="0,15,0,0" Grid.ColumnSpan="2" />
+            <Label Content="대전과역시 치과정보 서비스App" FontSize="14" FontWeight="Bold" Margin="0,15,0,0" Grid.ColumnSpan="2" />
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" >
                 <Button x:Name="BtnSerchData" Content="병원 목록 조회  " Width="120" Height="30" Margin="5,0,10,0"
                         Style="{StaticResource MahApps.Styles.Button.Square.Accent}" 
@@ -54,7 +55,13 @@
         <Grid  Grid.Column="1" Grid.ColumnSpan="2">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="539" >
-                <Button x:Name="BtnNameSerch" Content="검색 " Width="100" Height="30" Margin="10"
+                <TextBox x:Name="TxtName" Width="395" Height="40" Margin="10"
+                          Style="{StaticResource MahApps.Styles.TextBox}"
+                          mah:TextBoxHelper.Watermark="병원 이름 입력"
+                          mah:TextBoxHelper.UseFloatingWatermark="True"
+                          mah:TextBoxHelper.ClearTextButton="True"
+                          KeyDown="TxtName_KeyDown"  />
+                <Button x:Name="BtnNameSerch" Content="검색 " Width="100" Height="40" Margin="5"
                         Style="{StaticResource MahApps.Styles.Button.Square.Highlight}"
                         Click="BtnNameSerch_Click">
                     <Button.ContentTemplate>
@@ -66,37 +73,37 @@
                         </DataTemplate>
                     </Button.ContentTemplate>
                 </Button>
-                                <TextBox x:Name="TxtName" Width="395" Height="28" Margin="10"
-                          Style="{StaticResource MahApps.Styles.TextBox}"
-                          mah:TextBoxHelper.Watermark="병원 이름 검색"
-                          mah:TextBoxHelper.UseFloatingWatermark="True"
-                          mah:TextBoxHelper.ClearTextButton="True"
-                          KeyDown="TxtName_KeyDown"  />
-                
+
             </StackPanel>
 
         </Grid>
 
         <!-- 중간 데이터그리드 영역-->
-        <DataGrid x:Name="GrdResult" Grid.Row="1" Grid.Column="0" Margin="5,0,5,0" 
+        <DataGrid x:Name="GrdResult" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Margin="5,0,5,0" 
                   IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}"
-                  Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Background="Azure"
+                  Style="{StaticResource MahApps.Styles.DataGrid.Azure}" Background="AliceBlue"
                   MouseDoubleClick="GrdResult_MouseDoubleClick"
                   SelectedCellsChanged="GrdResult_SelectedCellsChanged" Height="494" VerticalAlignment="Center">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Sn}" Header="No." FontWeight="Bold"  Width="40"/>
-                <DataGridTextColumn Binding="{Binding Mdlc_instt_nm}" Header="병원명" FontWeight="Bold"  Width="80"/>
-                <DataGridTextColumn Binding="{Binding Lnm_adrs}" Header="지번 주소" FontWeight="Bold" Width="140"/>
-                <DataGridTextColumn Binding="{Binding Rn_adrs}" Header="도로명 주소" FontWeight="Bold" Width="135"/>
-                <DataGridTextColumn Binding="{Binding Telno}" Header="전화번호" FontWeight="Bold" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Mdlc_instt_nm}" Header="병원명" FontWeight="Bold"  Width="154"/>
+                <!--DataGridTextColumn Binding="{Binding Lnm_adrs}" Header="지번 주소" FontWeight="Bold" Width="140"/-->
+                <!--DataGridTextColumn Binding="{Binding Rn_adrs}" Header="도로명 주소" FontWeight="Bold" Width="135"/-->
+                <DataGridTextColumn Binding="{Binding Telno}" Header="전화번호" FontWeight="Bold" Width="155"/>
             </DataGrid.Columns>
         </DataGrid>
-        <!-- 지도 표시-->
+        <!--중간영역 지도 표시-->
         <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Background="Gainsboro" Margin="10,10,10,10" Grid.ColumnSpan="2">
             <cefSharp:ChromiumWebBrowser x:Name="BrsLoc" Address="http://map.google.com" />
         </Grid>
+        <!--중간영역 주소 정보 표시-->
+        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Background="Gray"  Margin="10,10,10,10" Grid.ColumnSpan="3">
+            <TextBlock x:Name="TxtAdress" />
+        </Grid>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,514,0,0" Grid.RowSpan="2">
+
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Horizontal" Margin="5,0,0,15" Grid.RowSpan="3">
             <Button x:Name="BtnAddMydentist" Content="나의 병원 추가" Margin="5,20" FontSize="12"
                     Background="#C8D7FF" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
                     Foreground="Black"
@@ -125,7 +132,7 @@
                 </Button.ContentTemplate>
             </Button>
 
-            <Button x:Name="BtnDelFavorite" Content="나의 병원 삭제" Margin="5, 20" FontSize="12"
+            <Button x:Name="BtnDelFavorite" Content="나의 병원 삭제" Margin="5,20" FontSize="12"
                     Background="#CCE1FF" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
                     Foreground="Black"
                     Click="BtnDelFavorite_Click"  Width="160">
@@ -140,7 +147,7 @@
             </Button>
         </StackPanel>
 
-        <StatusBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,80,0,0" Grid.RowSpan="2" >
+        <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0" Grid.RowSpan="4" >
             <StatusBarItem Content="대전광역시 치과 위치, 나의 병원 조회" />
             <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}" />
             <StatusBarItem x:Name="StsResult" />

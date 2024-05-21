@@ -6,8 +6,17 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
 - 원하는 치과 선택시 지도 서비스, 전화번호 등의 정보를 알 수 있습니다.
 - 즐겨찾기 기능을 이용해 한번 다녀온 치과는 즐겨찾기하여 다음 이용시 편리하게 확인 가능합니다.
 
+## 기능 구현을 위해 패키지 및 툴
+- Cefsharp WebBrowser 패키지
+- Cefsharp.Apis 패키지
+- MahApps.Metro UI
+- SQL Server, DB 연동
+- 오픈 api 활용
+
 ## 개발 기간
-- 2024-05-13 
+- 2024-05-13(1차)
+- 2024-05-21(2차)
+    - 디자인 수정,  구글 api 사용법 공부
 
 ## 주요 기능
 - 조회 및 정보 확인 기능
@@ -31,13 +40,15 @@ wpf toyproject 레포지토리 :  대전 치과 정보 서비스앱
     ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ007.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ006.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ008.png)
 
 
-## 기능 구현을 위해 패키지 및 툴
-- Cefsharp WebBrowser 패키지
-- Cefsharp.Apis 패키지
-- MahApps.Metro UI
-- SQL Server, DB 연동
-- 오픈 api 활용
 
 ## 보완해서 개발할 거
 - 병원 이름 검색을 통해 병원 선택하기
 - 맵 크게 보기 버튼 구현하기
+- 구글 api 사용하여 구글맵 서비스 활용하여 app 기능 추가하기
+
+## 토이프로젝트 개발 2차 준비중...
+- 구글 맵 지원 기능 
+(https://developers.google.com/maps/documentation/maps-static/start?hl=ko)
+    - 위치 지정 위도,경도 사용하지 않고 주소를 사용하여 나타내기 위해서 주소를 지리적 지점으로 변환하는 것을 지오코딩 -> Maps Static API 서비스에서 지오코딩 실행가능
+    - 주소를 나타낸느 문자열은 URL로 인코딩 되어야 함 (City+Hall,New+York,NY)
+
