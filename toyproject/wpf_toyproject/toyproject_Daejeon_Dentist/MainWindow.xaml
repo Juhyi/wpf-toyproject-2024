@@ -102,7 +102,7 @@
         </Grid>
 
 
-
+        <!-- 아래영역 버튼 표시-->
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Horizontal" Margin="5,0,0,15" Grid.RowSpan="3">
             <Button x:Name="BtnAddMydentist" Content="나의 병원 추가" Margin="5,20" FontSize="12"
                     Background="#C8D7FF" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
@@ -145,8 +145,23 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
+
+            <Button x:Name="BtnMap" Content="길 찾기" Margin="5,20" FontSize="12"
+                    Background="#CCE1FF" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Foreground="Black"
+                    Click="BtnDelFavorite_Click"  Width="160">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="5" />
+                            <iconPack:PackIconModern Kind="Delete" Margin="5" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
         </StackPanel>
 
+        <!--맨 아래 영역-->
         <StatusBar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0" Grid.RowSpan="4" >
             <StatusBarItem Content="대전광역시 치과 위치, 나의 병원 조회" />
             <Separator Style="{StaticResource MahApps.Styles.Separator.StatusBar}" />

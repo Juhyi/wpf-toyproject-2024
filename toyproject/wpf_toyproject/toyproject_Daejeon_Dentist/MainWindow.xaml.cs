@@ -54,7 +54,32 @@ namespace toyproject_Daejeon_Dentist
                 TxtName.Text = saveDates.ToString();
             }
         }
-        
+
+        // 이름으로 검색 이벤트핸들러
+        private async void BtnNameSerch_Click(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(TxtName.Text))
+            {
+                await this.ShowMessageAsync("검색", "검색할 병원명을 입력하세요.");
+                return;
+            }
+
+
+
+        }
+
+        private async void SerchName(object sender, RoutedEventArgs e)
+        {
+            if(TxtName.Text == Mdlc_instt_nm)
+            {
+
+            }
+
+          
+            
+
+        }
+
         // 조회 버큰 클릭
         private async void BtnSerch_Click(object sender, RoutedEventArgs e)
         {
@@ -320,11 +345,6 @@ namespace toyproject_Daejeon_Dentist
         }
 
 
-     
-        private async void BtnNameSerch_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+       
     }
 }
