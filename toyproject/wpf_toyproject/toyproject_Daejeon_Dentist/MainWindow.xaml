@@ -6,7 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:toyproject_Daejeon_Dentist" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        
+        xmlns:local="clr-namespace:toyproject_Daejeon_Dentist" 
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     mc:Ignorable="d"
         Title="Daejeon Dentist Check" Height="700" Width="900" MinHeight="700" MinWidth="900"
         Loaded="MetroWindow_Loaded">
@@ -149,7 +151,7 @@
             <Button x:Name="BtnMap" Content="길 찾기" Margin="5,20" FontSize="12"
                     Background="#CCE1FF" Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
                     Foreground="Black"
-                    Click="BtnDelFavorite_Click"  Width="160">
+                    Click="BtnMapScreen_Click"  Width="160">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

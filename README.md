@@ -1,11 +1,15 @@
 # wpf-toyproject-2024
+<<<<<<< Updated upstream
 WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
+=======
+wpf toyproject 레포지토리 :  대전 치과 지도 서비스앱
+>>>>>>> Stashed changes
 
 ##  프로젝트 소개
 - 대전 치과 정보 서비스 앱은 대전의 모든 치과를 데이터 그리드를 통해 보여주고 원하는 치과를 선택하면 그 치과에 대한 상세 정보를 알려주는 앱입니다.
 - 원하는 치과 선택시 지도 서비스, 전화번호 등의 정보를 알 수 있습니다.
 - 즐겨찾기 기능을 이용해 한번 다녀온 치과는 즐겨찾기하여 다음 이용시 편리하게 확인 가능합니다.
-
+- 오프라인 지도 앱 서비스
 ## 기능 구현을 위해 패키지 및 툴
 - Cefsharp WebBrowser 패키지
 - Cefsharp.Apis 패키지
@@ -46,9 +50,18 @@ WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
 - 맵 크게 보기 버튼 구현하기
 - 구글 api 사용하여 구글맵 서비스 활용하여 app 기능 추가하기
 
-## 토이프로젝트 개발 2차 준비중...
+# 토이프로젝트 개발 2차 준비중...
 - 구글 맵 지원 기능 
 (https://developers.google.com/maps/documentation/maps-static/start?hl=ko)
     - 위치 지정 위도,경도 사용하지 않고 주소를 사용하여 나타내기 위해서 주소를 지리적 지점으로 변환하는 것을 지오코딩 -> Maps Static API 서비스에서 지오코딩 실행가능
     - 주소를 나타낸느 문자열은 URL로 인코딩 되어야 함 (City+Hall,New+York,NY)
 
+## 2일차
+- Nudget 패키지 설치하기
+    - GMap.NET.Core
+    - GMap.NET.WinPresentation
+- 구글 맵 열기 구현하기
+    - 지도 서비스 클릭시 구글맵 열림
+    - 치과에 Mark 표시하기
+
+![구글맵](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.png)

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
 using toyproject_Daejeon_Dentist.Models;
+
 
 namespace toyproject_Daejeon_Dentist
 {
@@ -64,19 +66,16 @@ namespace toyproject_Daejeon_Dentist
                 return;
             }
 
+            SerchName(TxtName.Text);
+
 
 
         }
 
-        private async void SerchName(object sender, RoutedEventArgs e)
+        private async void SerchName(string dentistName)
         {
-            if(TxtName.Text == Mdlc_instt_nm)
-            {
+            string tmdb_apikey = "AIzaSyBrzkoaZ8RCTJdlNgy1gVY6P9EJH1pMsZc";
 
-            }
-
-          
-            
 
         }
 
@@ -326,7 +325,7 @@ namespace toyproject_Daejeon_Dentist
         {
             try
             {
-                var curMap = GrdResult.SelectedItem as dentistData;
+                var curMap = GrdResult .SelectedItem as dentistData;
 
 
                 BrsLoc.Address = $"http://google.com/maps/place/{curMap.Rn_adrs}";
@@ -344,7 +343,10 @@ namespace toyproject_Daejeon_Dentist
 
         }
 
-
-       
+        private void BtnMapScreen_Click(object sender, RoutedEventArgs e)
+        {
+            MetroWindow Map = new Map();
+            Map.Show();
+        }
     }
 }
