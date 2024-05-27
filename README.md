@@ -1,9 +1,5 @@
 # wpf-toyproject-2024
-<<<<<<< Updated upstream
 WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
-=======
-wpf toyproject 레포지토리 :  대전 치과 지도 서비스앱
->>>>>>> Stashed changes
 
 ##  프로젝트 소개
 - 대전 치과 정보 서비스 앱은 대전의 모든 치과를 데이터 그리드를 통해 보여주고 원하는 치과를 선택하면 그 치과에 대한 상세 정보를 알려주는 앱입니다.
@@ -64,4 +60,9 @@ wpf toyproject 레포지토리 :  대전 치과 지도 서비스앱
     - 지도 서비스 클릭시 구글맵 열림
     - 치과에 Mark 표시하기
 
-![구글맵](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.png)
+![구글맵](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.jpg)
+
+## 3일차
+- 병원 선택시 텍스트 박스에 정보 표시
+
+![병원정보](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.jpg)
