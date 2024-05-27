@@ -65,4 +65,4 @@ WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
 ## 3일차
 - 병원 선택시 텍스트 박스에 정보 표시
 
-![병원정보](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.jpg)
+![병원정보](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.png)
