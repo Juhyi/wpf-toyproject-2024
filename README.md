@@ -9,14 +9,16 @@ WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
 ## 기능 구현을 위해 패키지 및 툴
 - Cefsharp WebBrowser 패키지
 - Cefsharp.Apis 패키지
+- GMap.NET.WinPresentation 패키지
+- GMap.NET.Core 패키지
 - MahApps.Metro UI
 - SQL Server, DB 연동
 - 오픈 api 활용
-
 ## 개발 기간
 - 2024-05-13(1차)
-- 2024-05-21(2차)
+- 2024-05-21 ~ 2024-05-27(2차)
     - 디자인 수정,  구글 api 사용법 공부
+    - 텍스트 박스 추가
 
 ## 주요 기능
 - 조회 및 정보 확인 기능
@@ -63,6 +65,8 @@ WPF TOYPROJECT 레포지토리 :  대전 치과 정보 서비스앱
 ![구글맵](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.jpg)
 
 ## 3일차
-- 병원 선택시 텍스트 박스에 정보 표시
+- 기능 추가
+    - 병원 선택을 하면 구글맵에 자동 검색 기능
+    - 병원 선택시 구글맵 아래 텍스트 박스에 주소, 전화번호 정보 출력
 
 ![병원정보](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.png)
