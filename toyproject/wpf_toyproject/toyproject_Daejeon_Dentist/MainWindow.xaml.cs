@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
 using toyproject_Daejeon_Dentist.Models;
+
 
 namespace toyproject_Daejeon_Dentist
 {
@@ -54,7 +56,29 @@ namespace toyproject_Daejeon_Dentist
                 TxtName.Text = saveDates.ToString();
             }
         }
-        
+
+        // 이름으로 검색 이벤트핸들러
+        private async void BtnNameSerch_Click(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(TxtName.Text))
+            {
+                await this.ShowMessageAsync("검색", "검색할 병원명을 입력하세요.");
+                return;
+            }
+
+            SerchName(TxtName.Text);
+
+
+
+        }
+
+        private async void SerchName(string dentistName)
+        {
+            string tmdb_apikey = "AIzaSyBrzkoaZ8RCTJdlNgy1gVY6P9EJH1pMsZc";
+
+
+        }
+
         // 조회 버큰 클릭
         private async void BtnSerch_Click(object sender, RoutedEventArgs e)
         {
@@ -301,7 +325,7 @@ namespace toyproject_Daejeon_Dentist
         {
             try
             {
-                var curMap = GrdResult.SelectedItem as dentistData;
+                var curMap = GrdResult .SelectedItem as dentistData;
 
 
                 BrsLoc.Address = $"http://google.com/maps/place/{curMap.Rn_adrs}";
@@ -319,12 +343,10 @@ namespace toyproject_Daejeon_Dentist
 
         }
 
-
-     
-        private async void BtnNameSerch_Click(object sender, RoutedEventArgs e)
+        private void BtnMapScreen_Click(object sender, RoutedEventArgs e)
         {
-
+            MetroWindow Map = new Map();
+            Map.Show();
         }
-
     }
 }
