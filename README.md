@@ -24,25 +24,34 @@
 - 2024-05-21 ~ 2024-05-27(2차)
   
 ## ✨주요 기능
-- 조회 및 정보 확인 기능
-    - 조회 버튼 클릭 시 대전 치과 목록이 그리드뷰에 출력
-    - 그리뷰 병원 더블 클릭 시 상세 정보 팝업 
-    - 그리뷰 병원 클릭 시 구글 맵에서 위치 정보 화면이 나옴
+### [조회 및 정보 확인 기능]
+- 조회 버튼 클릭 시 대전 치과 목록이 그리드뷰에
+- 그리뷰 병원 더블 클릭 시 상세 정보 팝업 
+- 그리뷰 병원 클릭 시 구글 맵에서 위치 정보 화면이 나옴
+
+|초기화면|조회 및 정보화면|
+|---------|--------|
+|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ003.png" height="350" width="500">|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ004.png" height="350" width="500">|
+|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.png" height="350" width="500">|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.png" height="350" width="500">|
     
+### [즐겨찾기 추가 및 삭제 기능]
+- 나의병원 추가 버튼을 이용하여 즐겨찾기 목록 생성
+  - 복수개 선택 가능
+  - 즐겨찾기 목록에서 다시 추가 버튼 클릭시 중복 저장 되지 않게 기능 구현
+  - 복수개 선택 시 이미 저장되어 있는 병원은 제외하고 저장됨. 
+- 나의병원 삭제 버튼 클릭시 즐겨 찾기 목록에서 삭제 됨
 
-    ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ003.png)  ![조회 및 정보 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ004.png)
-   
-    <img src = "https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ005.png" align="center">
+|즐겨찾기 저장 |즐겨찾기 조회|
+|----------------|-------------|
+|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ007.png" height="350" width="500">|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ006.png" height="350" width="500">|
+|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ008.png" height="350" width="500">||
 
+### [오프라인 지도맵 지원]
+- 인터넷 연결이 되지 않는 환경에서도 지도를 통해 치과 위치를 확인할 수 있는 오프라인 지원.
 
-- 나의병원 (즐겨찾기) 추가 및 삭제 기능
-    - 나의병원 추가 버튼을 이용하여 즐겨찾기 목록 생성
-        - 복수개 선택 가능
-        - 즐겨찾기 목록에서 다시 추가 버튼 클릭시 중복 저장 되지 않게 기능 구현
-        - 복수개 선택 시 이미 저장되어 있는 병원은 제외하고 저장됨. 
-    - 나의병원 삭제 버튼 클릭시 즐겨 찾기 목록에서 삭제 됨
-
-    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ007.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ006.png)    ![나의병원 저장 실행화면](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/PJ008.png)
+|오프라인 지도맵|
+|--------|
+|<img src="https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.jpg" height="350" width="500">|
 
 
 
@@ -50,6 +59,8 @@
 - 병원 이름 검색을 통해 병원 선택하기
 - 맵 크게 보기 버튼 구현하기
 - 구글 api 사용하여 구글맵 서비스 활용하여 app 기능 추가하기
+
+---
 
 # 토이프로젝트 개발 2차 준비중...
 - 구글 맵 지원 기능 
@@ -64,12 +75,8 @@
 - 구글 맵 열기 구현하기
     - 지도 서비스 클릭시 구글맵 열림
     - 치과에 Mark 표시하기
-
-![구글맵](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj003.jpg)
-
+    - 
 ## 3일차
 - 기능 추가
     - 병원 선택을 하면 구글맵에 자동 검색 기능
     - 병원 선택시 구글맵 아래 텍스트 박스에 주소, 전화번호 정보 출력
-
-![병원정보](https://raw.githubusercontent.com/Juhyi/wpf-toyproject-2024/main/images/pj009.png)
